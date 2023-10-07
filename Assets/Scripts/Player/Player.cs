@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     private float inputX;
     private float inputY;
     [SerializeField] private float speed;
+    private float currentSpeed;
     [SerializeField] private float acceleration;
     [SerializeField] private float decceleration;
     private Vector3 mousePos;
@@ -22,6 +23,9 @@ public class Player : MonoBehaviour
     int points = 0;
     public TMP_Text pointsText;
 
+    [Header("Power Levels")]
+    private int speedLevel = 0;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -33,6 +37,17 @@ public class Player : MonoBehaviour
     void Start() {
 
         pointsText.text = "Points: " + points.ToString();
+        currentSpeed = speed;
+        EventManager.current.onUpgradePlayer += UpgradePlayer;
+
+        EventManager.current.UpgradePlayer(0);
+        EventManager.current.UpgradePlayer(0);
+        EventManager.current.UpgradePlayer(0);
+        EventManager.current.UpgradePlayer(0);
+        EventManager.current.UpgradeCannon(0);
+        EventManager.current.UpgradeCannon(0);
+        EventManager.current.UpgradeCannon(0);
+        EventManager.current.UpgradeCannon(0);
 
     }
 
@@ -71,7 +86,7 @@ public class Player : MonoBehaviour
     void Move(){
 
         //horizontal
-        float targetSpeed = inputX * speed;
+        float targetSpeed = inputX * currentSpeed;
         float speedDif = targetSpeed - rb.velocity.x;
         float accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? acceleration : decceleration;
         float movement = Mathf.Pow(Mathf.Abs(speedDif) * accelRate, 1) * Mathf.Sign(speedDif);
@@ -79,7 +94,7 @@ public class Player : MonoBehaviour
         rb.AddForce(movement * Vector2.right);
 
         //vertical
-        targetSpeed = inputY * speed;
+        targetSpeed = inputY * currentSpeed;
         speedDif = targetSpeed - rb.velocity.y;
         accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? acceleration : decceleration;
         movement = Mathf.Pow(Mathf.Abs(speedDif) * accelRate, 1) * Mathf.Sign(speedDif);
@@ -126,6 +141,22 @@ public class Player : MonoBehaviour
             StartCoroutine(FlashRed());
             tempTime = 0;
         }
+    }
+
+    void UpgradePlayer(int id){
+        switch (id){
+            case 0:
+                speedLevel++;
+                break;
+        }
+        UpdateStats();
+    }
+
+    void UpdateStats(){
+        if (speedLevel != 0){
+            currentSpeed = speed * (Mathf.Pow(1.3f, speedLevel));
+        }
+        
     }
 
 }

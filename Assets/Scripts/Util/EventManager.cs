@@ -19,4 +19,20 @@ public class EventManager : MonoBehaviour
             onSpawnBug(bug, id);
         }
     }
+
+    public event Action<int> onUpgradePlayer;
+
+    public void UpgradePlayer(int id){
+        if (onUpgradePlayer != null){
+            onUpgradePlayer(id);
+        }
+    }
+
+    public event Action<int> onUpgradeCannon;
+
+    public void UpgradeCannon(int id){
+        if (onUpgradeCannon != null){
+            onUpgradeCannon(id);
+        }
+    }
 }

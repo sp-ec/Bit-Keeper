@@ -14,7 +14,6 @@ public class SpawnPoints : MonoBehaviour
     void SpawnBug(GameObject bug, int id){
 
         if (this.id == id){
-            Debug.Log("IDs match");
             Instantiate(bug, transform.position, Quaternion.identity);
         }
 
