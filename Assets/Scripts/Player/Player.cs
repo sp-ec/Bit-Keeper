@@ -15,16 +15,14 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject cannon;
 
     SpriteRenderer sr;
-    Slider s;
-    HealthBar healthBar;
+    public HealthBar healthBar;
     [SerializeField] float maxHealth = 100;
 
     // Start is called before the first frame update
     void Awake()
     {
         sr = GetComponent<SpriteRenderer>();
-        //s = GameObject.FindGameObjectWithTag("HealthBar").GetComponent<Slider>();
-        //healthBar = new HealthBar(s, maxHealth);
+        healthBar.health = maxHealth;
 
     }
 
@@ -86,8 +84,6 @@ public class Player : MonoBehaviour
         yield return null;
     }
 
-    /*
-
     void OnCollisionEnter2D(Collision2D col) {
         if (col.gameObject.CompareTag("Bug")) {
             StartCoroutine(FlashRed());
@@ -107,7 +103,5 @@ public class Player : MonoBehaviour
             }
         }
     }
-
-    */
 
 }

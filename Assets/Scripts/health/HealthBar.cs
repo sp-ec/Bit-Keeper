@@ -7,14 +7,11 @@ using UnityEngine.UI;
 public class HealthBar : MonoBehaviour
 {
 
-    Slider slider;
-    float health;
+    public Slider slider;
+    public float health;
 
-    // Start is called before the first frame update
-
-    public HealthBar(Slider slider, float health) {
-        this.slider = slider;
-        this.health = health;
+    void Start() {
+        slider = GetComponent<Slider>();
         slider.maxValue = health;
         slider.value = health;
     }
