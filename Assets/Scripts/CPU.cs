@@ -17,7 +17,7 @@ public class CPU : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        tempTime += Time.deltaTime;
     }
 
 
@@ -31,12 +31,15 @@ public class CPU : MonoBehaviour
     float tempTime = 0;
     void OnCollisionStay2D(Collision2D col) {
         if (col.gameObject.CompareTag("Bug")) {
-            tempTime += Time.deltaTime;
-            if (tempTime > 2f) {
-                healthBar.damaged(1);
-                StartCoroutine(FlashRed());
-                tempTime = 0;
-            }
+            Damage(1);
+        }
+    }
+
+    public void Damage(int amount){
+        if (tempTime > 2f) {
+            healthBar.damaged(amount);
+            StartCoroutine(FlashRed());
+            tempTime = 0;
         }
     }
 

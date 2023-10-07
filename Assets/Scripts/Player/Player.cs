@@ -47,6 +47,8 @@ public class Player : MonoBehaviour
 
         Quaternion targetRotation = Quaternion.Euler(new Vector3(0, 0, angle));
         cannon.transform.rotation = Quaternion.RotateTowards(cannon.transform.rotation, targetRotation, 100);
+
+        tempTime += Time.deltaTime;
     }
 
     void FixedUpdate()
@@ -105,7 +107,6 @@ public class Player : MonoBehaviour
 
     void OnCollisionStay2D(Collision2D col) {
         if (col.gameObject.CompareTag("Bug")) {
-            tempTime += Time.deltaTime;
             if (tempTime > 2f) {
                 healthBar.damaged(1);
                 StartCoroutine(FlashRed());
@@ -117,6 +118,14 @@ public class Player : MonoBehaviour
     public void addPoints(int pointsToAdd) {
         points += pointsToAdd;
         pointsText.text = "Points: " + points.ToString();
+    }
+
+    public void Damage(int amount){
+        if (tempTime > 2f) {
+            healthBar.damaged(1);
+            StartCoroutine(FlashRed());
+            tempTime = 0;
+        }
     }
 
 }

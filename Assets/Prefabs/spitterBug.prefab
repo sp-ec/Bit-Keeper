@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 689389748875922713}
   - component: {fileID: 4429547806829947563}
   - component: {fileID: 4543695930462269684}
-  - component: {fileID: 6137000551285086361}
   - component: {fileID: 2369434164785000877}
   - component: {fileID: 1624987452481220265}
   m_Layer: 0
@@ -177,21 +176,9 @@ MonoBehaviour:
   maxHealth: 3
   points: 3
   player: {fileID: 0}
---- !u!114 &6137000551285086361
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1725879111033209086}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac888da45a3c16841b06109767cb0468, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 3
-  points: 3
-  player: {fileID: 0}
+  bulletObject: {fileID: 7661794751805632906, guid: 8d5531985662b95429e9071aa07a0b2d, type: 3}
+  fireCooldown: 3
+  bulletSpeed: 10
 --- !u!114 &2369434164785000877
 MonoBehaviour:
   m_ObjectHideFlags: 0
