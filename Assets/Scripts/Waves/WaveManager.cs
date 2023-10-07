@@ -33,7 +33,7 @@ public class WaveManager : MonoBehaviour
 
         numWaves++;
         if (numWaves < 3){
-            waveScript.numNormalBugs = numWaves * 5;
+            waveScript.numNormalBugs = numWaves * 10;
             waveScript.numChaserBugs = 0;
             waveScript.numSpitterBugs = 0;
         } else if (numWaves < 6) {
@@ -43,7 +43,10 @@ public class WaveManager : MonoBehaviour
         } else {
             
         }
+
         SpawnWave();
+
+        Debug.Log(waveScript.numNormalBugs);
     }
 
     private void SpawnWave(){

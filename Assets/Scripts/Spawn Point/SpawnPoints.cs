@@ -11,6 +11,7 @@ public class SpawnPoints : MonoBehaviour
     }
 
     void SpawnBug(GameObject bug, int amount){
+        Debug.Log("Spawning Bug");
         for (int i = 0; i < amount; i++){
             Instantiate(bug, transform.position, Quaternion.identity);
         }
