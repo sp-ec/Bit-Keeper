@@ -42,7 +42,15 @@ public class Bug : MonoBehaviour
         rb.velocity = new Vector2(moveDirection.x, moveDirection.y) * moveSpeed;
     }
 
+    IEnumerator FlashRed() {
+        sr.color = Color.red;
+        yield return new WaitForSeconds(0.1f);
+        sr.color = Color.white;
+        yield return null;
+    }
+
     public void damageEnemy() {
+        StartCoroutine(FlashRed());
         health -= 1;
         if (health == 0) {
             sr.color = Color.red;
