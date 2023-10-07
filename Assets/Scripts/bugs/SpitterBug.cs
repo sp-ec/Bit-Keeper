@@ -4,7 +4,7 @@ using UnityEngine;
 using Pathfinding;
 
 
-public class Bug : AbstractBug
+public class SpitterBug : AbstractBug
 {
     protected override void Start(){
         base.Start();

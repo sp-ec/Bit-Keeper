@@ -7,7 +7,7 @@ public class PlayerBullet : Projectile
 
     protected override void RunCollision(RaycastHit2D hit){
         if (hit.collider.CompareTag("Bug")){
-            Bug bugScript = hit.transform.gameObject.GetComponent<Bug>();
+            AbstractBug bugScript = hit.transform.gameObject.GetComponent<AbstractBug>();
             bugScript.damageEnemy();
         }
         base.RunCollision(hit);

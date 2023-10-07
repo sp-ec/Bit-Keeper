@@ -7,6 +7,7 @@ TagManager:
   - Bullet
   - Bug
   - HealthBar
+  - CPU
   layers:
   - Default
   - TransparentFX
