@@ -15,12 +15,17 @@ public class Bug : MonoBehaviour
     [SerializeField] int maxHealth = 1;
     int health;
 
+    public int points = 1;
+
+    public Player player;
+
     // Start is called before the first frame update
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
     }
 
     void Start() {
@@ -55,6 +60,7 @@ public class Bug : MonoBehaviour
         if (health == 0) {
             sr.color = Color.red;
             Destroy(gameObject, 0.1f);
+            player.addPoints(points);
         }
     }
 

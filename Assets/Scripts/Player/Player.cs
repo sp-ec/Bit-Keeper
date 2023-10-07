@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Player : MonoBehaviour
 {
@@ -18,11 +19,20 @@ public class Player : MonoBehaviour
     public HealthBar healthBar;
     [SerializeField] float maxHealth = 100;
 
+    int points = 0;
+    public TMP_Text pointsText;
+
     // Start is called before the first frame update
     void Awake()
     {
         sr = GetComponent<SpriteRenderer>();
         healthBar.health = maxHealth;
+
+    }
+
+    void Start() {
+
+        pointsText.text = "Points: " + points.ToString();
 
     }
 
@@ -102,6 +112,11 @@ public class Player : MonoBehaviour
                 tempTime = 0;
             }
         }
+    }
+
+    public void addPoints(int pointsToAdd) {
+        points += pointsToAdd;
+        pointsText.text = "Points: " + points.ToString();
     }
 
 }

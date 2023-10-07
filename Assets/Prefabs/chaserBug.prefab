@@ -101,6 +101,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 4
   maxHealth: 3
+  points: 3
+  player: {fileID: 0}
 --- !u!50 &8289798418774196693
 Rigidbody2D:
   serializedVersion: 4
