@@ -4,19 +4,14 @@ using UnityEngine;
 
 public class SpawnPoints : MonoBehaviour
 {
-
-    [SerializeField] GameObject bug;
-
     // Start is called before the first frame update
     void Start()
     {
-        
+        EventManager.current.onSpawnBug += SpawnBug;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetMouseButtonDown(1)) {
+    void SpawnBug(GameObject bug, int amount){
+        for (int i = 0; i < amount; i++){
             Instantiate(bug, transform.position, Quaternion.identity);
         }
     }

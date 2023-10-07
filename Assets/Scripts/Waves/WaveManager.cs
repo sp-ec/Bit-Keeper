@@ -5,13 +5,16 @@ using UnityEngine;
 public class WaveManager : MonoBehaviour
 {
     public static WaveManager current;
-    int numWaves = 1;
-    Wave currentWave;
-    [SerializeField] private ArrayList spawnPoints;
+    int numWaves = 0;
+    private Wave waveScript;
+    [SerializeField] private GameObject bugObject;
+    [SerializeField] private GameObject chaserBugObject;
+    [SerializeField] private GameObject spitterBugObject;
     
     void Awake()
     {
        current = this; 
+       waveScript = GetComponent<Wave>();
     }
 
     void Start(){
@@ -25,18 +28,27 @@ public class WaveManager : MonoBehaviour
     }
 
     public void NextWave(){
+
+        //num bugs is per spawn point, not in total;
+
+        numWaves++;
         if (numWaves < 3){
-            currentWave = new Wave(numWaves * 10, 0, 0);
+            waveScript.numNormalBugs = numWaves * 5;
+            waveScript.numChaserBugs = 0;
+            waveScript.numSpitterBugs = 0;
         } else if (numWaves < 6) {
-            currentWave = new Wave(numWaves * 8, numWaves, 0);
+            
         } else if (numWaves < 10) {
-            currentWave = new Wave(numWaves * 8, numWaves * 2, numWaves);
+           
         } else {
-            currentWave = new Wave(numWaves * 6, numWaves * 3, numWaves * 2);
+            
         }
+        SpawnWave();
     }
 
     private void SpawnWave(){
-
+        EventManager.current.SpawnBug(bugObject, waveScript.numNormalBugs);
+        EventManager.current.SpawnBug(chaserBugObject, waveScript.numChaserBugs);
+        EventManager.current.SpawnBug(spitterBugObject, waveScript.numSpitterBugs);
     }
 }

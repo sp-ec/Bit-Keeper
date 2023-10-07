@@ -2,14 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Wave
+public class Wave : MonoBehaviour
 {
-    int numNormalBugs;
-    int numChaserBugs;
-    int numSpitterBugs;
-    public Wave(int numNormalBugs, int numChaserBugs, int numSpitterBugs){
-        this.numNormalBugs = numNormalBugs;
-        this.numChaserBugs = numChaserBugs;
-        this.numSpitterBugs = numSpitterBugs;
-    }
+    public int numNormalBugs;
+    public int numChaserBugs;
+    public int numSpitterBugs;
+
 }
