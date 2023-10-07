@@ -8,7 +8,7 @@ public class Bug : MonoBehaviour
     [SerializeField] float moveSpeed = 5f;
     SpriteRenderer sr;
     Rigidbody2D rb;
-    [SerializeField] Transform target;
+    Transform target;
     Vector2 moveDirection;
     [SerializeField] int maxHealth = 1;
     int health;
@@ -18,6 +18,7 @@ public class Bug : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
+        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
     void Start() {
