@@ -14,9 +14,9 @@ public class EventManager : MonoBehaviour
 
     public event Action<GameObject, int> onSpawnBug;
 
-    public void SpawnBug(GameObject bug, int amount){
+    public void SpawnBug(GameObject bug, int id){
         if (onSpawnBug != null){
-            onSpawnBug(bug, amount);
+            onSpawnBug(bug, id);
         }
     }
 }

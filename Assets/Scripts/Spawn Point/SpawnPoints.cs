@@ -4,16 +4,21 @@ using UnityEngine;
 
 public class SpawnPoints : MonoBehaviour
 {
+    [SerializeField] private int id;
     // Start is called before the first frame update
     void Start()
     {
         EventManager.current.onSpawnBug += SpawnBug;
     }
 
-    void SpawnBug(GameObject bug, int amount){
-        Debug.Log("Spawning Bug");
-        for (int i = 0; i < amount; i++){
+    void SpawnBug(GameObject bug, int id){
+
+        if (this.id == id){
+            Debug.Log("IDs match");
             Instantiate(bug, transform.position, Quaternion.identity);
         }
+
     }
+
+    
 }

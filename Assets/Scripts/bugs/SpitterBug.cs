@@ -10,19 +10,24 @@ public class SpitterBug : AbstractBug
     [SerializeField] private float fireCooldown;
     [SerializeField] private float bulletSpeed;
     private float fireCooldownCounter;
+    private Vector2 cpuPosition;
 
     protected override void Start(){
         base.Start();
-        GetComponent<AIPath>().destination = GameObject.FindGameObjectWithTag("CPU").GetComponent<Transform>().position;
+        cpuPosition = GameObject.FindGameObjectWithTag("CPU").GetComponent<Transform>().position;
+        GetComponent<AIPath>().destination = cpuPosition;
     }
 
     void Update()
     {
         fireCooldownCounter -= Time.deltaTime;
 
-        if (fireCooldownCounter <= 0){
+        float distance = Vector3.Distance (transform.position, cpuPosition);
+
+        if (fireCooldownCounter <= 0 && distance <= 5){
             Shoot();
         }
+
     }
 
     void Shoot() {
