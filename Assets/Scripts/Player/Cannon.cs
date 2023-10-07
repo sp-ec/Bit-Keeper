@@ -11,7 +11,8 @@ public class Cannon : MonoBehaviour
     [SerializeField] private Transform exitPoint;
     [SerializeField] private Transform runtimeObject;
     [SerializeField] private float bulletSpeed;
-    float numBullets;
+    [SerializeField] private float multiBulletSpread;
+    float numBullets = 1;
 
     [Header("Power Levels")]
     private int fireRateLevel = 0;
@@ -35,10 +36,25 @@ public class Cannon : MonoBehaviour
 
     void Shoot() {
 
+        Vector2 direction = CursorManager.current.GetMouseDirection(this.gameObject);
+
+        if (numBullets > 1){
+                for (int i = 0; i < numBullets; i++){
+                    float tempSpread = (-multiBulletSpread/2) + (i * (multiBulletSpread/(numBullets-1)));
+                    Vector2 spreadDirection = Quaternion.Euler(0, 0, tempSpread) * direction;
+
+                    GameObject bullet = Instantiate(bulletObject, exitPoint.position, Quaternion.identity);
+                    PlayerBullet bulletScript = bullet.GetComponent<PlayerBullet>();
+                    bulletScript.Create(spreadDirection, bulletSpeed);
+                    
+                }
+            } else {
+                GameObject bullet = Instantiate(bulletObject, exitPoint.position, Quaternion.identity);
+                PlayerBullet bulletScript = bullet.GetComponent<PlayerBullet>();
+                bulletScript.Create(direction, bulletSpeed);
+        }
+
         fireCooldownCounter = fireCooldown;
-        GameObject bullet = Instantiate(bulletObject, exitPoint.position, Quaternion.identity, runtimeObject);
-        PlayerBullet bulletScript = bullet.GetComponent<PlayerBullet>();
-        bulletScript.Create(CursorManager.current.GetMouseDirection(this.gameObject), bulletSpeed);
     }
 
     void UpgradeCannon(int id){

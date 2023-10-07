@@ -40,14 +40,8 @@ public class Player : MonoBehaviour
         currentSpeed = speed;
         EventManager.current.onUpgradePlayer += UpgradePlayer;
 
-        EventManager.current.UpgradePlayer(0);
-        EventManager.current.UpgradePlayer(0);
-        EventManager.current.UpgradePlayer(0);
-        EventManager.current.UpgradePlayer(0);
-        EventManager.current.UpgradeCannon(0);
-        EventManager.current.UpgradeCannon(0);
-        EventManager.current.UpgradeCannon(0);
-        EventManager.current.UpgradeCannon(0);
+        EventManager.current.UpgradeCannon(1);
+        EventManager.current.UpgradeCannon(1);
 
     }
 
