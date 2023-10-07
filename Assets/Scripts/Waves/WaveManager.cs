@@ -19,6 +19,7 @@ public class WaveManager : MonoBehaviour
 
     void Start(){
         NextWave();
+        StartCoroutine(CheckWaveStatus());
     }
 
     // Update is called once per frame
@@ -28,25 +29,35 @@ public class WaveManager : MonoBehaviour
     }
 
     public void NextWave(){
-
-        /*
+        
         numWaves++;
-        if (numWaves < 3){
+        if (numWaves <= 2){
             waveScript.numNormalBugs = numWaves * 10;
             waveScript.numChaserBugs = 0;
             waveScript.numSpitterBugs = 0;
-        } else if (numWaves < 6) {
-            
-        } else if (numWaves < 10) {
-           
+        } else if (numWaves <= 3) {
+            waveScript.numNormalBugs = 20;
+            waveScript.numChaserBugs = 1;
+        } else if (numWaves <= 4) {
+            waveScript.numNormalBugs = 0;
+            waveScript.numChaserBugs = 4;
+        } else if (numWaves <= 6){
+            waveScript.numNormalBugs = numWaves * 5;
+            waveScript.numChaserBugs = numWaves;
+        } else if (numWaves <= 7){
+            waveScript.numNormalBugs = 0;
+            waveScript.numChaserBugs = 0;
+            waveScript.numSpitterBugs = 4;
+        } else if (numWaves <= 9){
+            waveScript.numNormalBugs = numWaves * 7;
+            waveScript.numChaserBugs = numWaves/2;
+            waveScript.numSpitterBugs = numWaves;
         } else {
-            
+            waveScript.numNormalBugs = numWaves * 8;
+            waveScript.numChaserBugs = numWaves;
+            waveScript.numSpitterBugs = numWaves * 2;
         }
-        */
-        waveScript.numNormalBugs = 20;
-        waveScript.numChaserBugs = 2;
-        waveScript.numSpitterBugs = 2;
-
+    
         SpawnWave();
 
         Debug.Log(waveScript.numNormalBugs);
@@ -83,5 +94,14 @@ public class WaveManager : MonoBehaviour
         yield return new WaitForSeconds(delay);
         EventManager.current.SpawnBug(bug, id);
         
+    }
+
+    IEnumerator CheckWaveStatus(){
+        while (true){
+            yield return new WaitForSeconds(1);
+            if (GameObject.FindGameObjectWithTag("Bug") == null){
+                NextWave();
+            }
+        }
     }
 }

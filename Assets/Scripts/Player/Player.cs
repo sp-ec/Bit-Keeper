@@ -39,10 +39,6 @@ public class Player : MonoBehaviour
         pointsText.text = "Points: " + points.ToString();
         currentSpeed = speed;
         EventManager.current.onUpgradePlayer += UpgradePlayer;
-
-        EventManager.current.UpgradeCannon(1);
-        EventManager.current.UpgradeCannon(1);
-
     }
 
     // Update is called once per frame
