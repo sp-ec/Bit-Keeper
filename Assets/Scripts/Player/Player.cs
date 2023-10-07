@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -12,10 +13,19 @@ public class Player : MonoBehaviour
     [SerializeField] private float decceleration;
     private Vector3 mousePos;
     [SerializeField] private GameObject cannon;
+
+    SpriteRenderer sr;
+    Slider s;
+    HealthBar healthBar;
+    [SerializeField] float maxHealth = 100;
+
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
+        sr = GetComponent<SpriteRenderer>();
+        s = GameObject.FindGameObjectWithTag("HealthBar").GetComponent<Slider>();
+        healthBar = new HealthBar(s, maxHealth);
+
     }
 
     // Update is called once per frame
@@ -68,4 +78,33 @@ public class Player : MonoBehaviour
 
 
     }
+
+    IEnumerator FlashRed() {
+        sr.color = Color.red;
+        yield return new WaitForSeconds(0.1f);
+        sr.color = Color.white;
+        yield return null;
+    }
+
+
+    void OnCollisionEnter2D(Collision2D col) {
+        if (col.gameObject.CompareTag("Bug")) {
+            StartCoroutine(FlashRed());
+            healthBar.damaged(1);
+        }
+    }
+
+    float tempTime = 0;
+
+    void OnCollisionStay2D(Collision2D col) {
+        if (col.gameObject.CompareTag("Bug")) {
+            tempTime += Time.deltaTime;
+            if (tempTime > 2f) {
+                healthBar.damaged(1);
+                StartCoroutine(FlashRed());
+                tempTime = 0;
+            }
+        }
+    }
+
 }

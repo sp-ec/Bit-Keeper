@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Bug : MonoBehaviour
 {
 
@@ -10,6 +11,7 @@ public class Bug : MonoBehaviour
     Rigidbody2D rb;
     Transform target;
     Vector2 moveDirection;
+    
     [SerializeField] int maxHealth = 1;
     int health;
 

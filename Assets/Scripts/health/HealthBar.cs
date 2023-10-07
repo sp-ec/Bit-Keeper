@@ -7,18 +7,20 @@ using UnityEngine.UI;
 public class HealthBar : MonoBehaviour
 {
 
-    public Slider slider;
-    [SerializeField] float health;
+    Slider slider;
+    float health;
 
     // Start is called before the first frame update
-    void Start()
-    {
+
+    public HealthBar(Slider slider, float health) {
+        this.slider = slider;
+        this.health = health;
         slider.maxValue = health;
         slider.value = health;
     }
 
-    // Update is called once per frame
-    void damaged(int amount) {
+    public void damaged(int amount) {
         slider.value -= amount;
     }
+    
 }
