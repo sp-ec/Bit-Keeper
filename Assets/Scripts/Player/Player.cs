@@ -23,8 +23,8 @@ public class Player : MonoBehaviour
     void Awake()
     {
         sr = GetComponent<SpriteRenderer>();
-        s = GameObject.FindGameObjectWithTag("HealthBar").GetComponent<Slider>();
-        healthBar = new HealthBar(s, maxHealth);
+        //s = GameObject.FindGameObjectWithTag("HealthBar").GetComponent<Slider>();
+        //healthBar = new HealthBar(s, maxHealth);
 
     }
 
@@ -86,6 +86,7 @@ public class Player : MonoBehaviour
         yield return null;
     }
 
+    /*
 
     void OnCollisionEnter2D(Collision2D col) {
         if (col.gameObject.CompareTag("Bug")) {
@@ -106,5 +107,7 @@ public class Player : MonoBehaviour
             }
         }
     }
+
+    */
 
 }
