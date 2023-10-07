@@ -30,7 +30,7 @@ public class WaveManager : MonoBehaviour
     public void NextWave(){
 
         //num bugs is per spawn point, not in total;
-
+        /*
         numWaves++;
         if (numWaves < 3){
             waveScript.numNormalBugs = numWaves * 10;
@@ -43,6 +43,10 @@ public class WaveManager : MonoBehaviour
         } else {
             
         }
+        */
+        waveScript.numNormalBugs = 10;
+        waveScript.numChaserBugs = 1;
+        waveScript.numSpitterBugs = 1;
 
         SpawnWave();
 

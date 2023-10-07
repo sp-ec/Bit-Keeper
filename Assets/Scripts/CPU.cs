@@ -36,7 +36,7 @@ public class CPU : MonoBehaviour
     }
 
     public void Damage(int amount){
-        if (tempTime > 2f) {
+        if (tempTime > 0.5f) {
             healthBar.damaged(amount);
             StartCoroutine(FlashRed());
             tempTime = 0;
