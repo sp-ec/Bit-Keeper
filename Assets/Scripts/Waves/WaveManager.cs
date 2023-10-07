@@ -29,7 +29,6 @@ public class WaveManager : MonoBehaviour
 
     public void NextWave(){
 
-        //num bugs is per spawn point, not in total;
         /*
         numWaves++;
         if (numWaves < 3){
@@ -44,9 +43,9 @@ public class WaveManager : MonoBehaviour
             
         }
         */
-        waveScript.numNormalBugs = 10;
-        waveScript.numChaserBugs = 1;
-        waveScript.numSpitterBugs = 1;
+        waveScript.numNormalBugs = 20;
+        waveScript.numChaserBugs = 0;
+        waveScript.numSpitterBugs = 0;
 
         SpawnWave();
 
@@ -54,8 +53,35 @@ public class WaveManager : MonoBehaviour
     }
 
     private void SpawnWave(){
-        EventManager.current.SpawnBug(bugObject, waveScript.numNormalBugs);
-        EventManager.current.SpawnBug(chaserBugObject, waveScript.numChaserBugs);
-        EventManager.current.SpawnBug(spitterBugObject, waveScript.numSpitterBugs);
+
+        int currentId = 0;
+
+        for (int i = 0; i < waveScript.numNormalBugs; i++){
+            currentId++;
+            if (currentId > 3){
+                currentId = 0;
+            }
+            StartCoroutine(DelayedSpawn(bugObject, 0.2f * i, currentId));
+        }
+        for (int i = 0; i < waveScript.numChaserBugs; i++){
+            currentId++;
+            if (currentId > 3){
+                currentId = 0;
+            }
+            StartCoroutine(DelayedSpawn(chaserBugObject, 3f * i, currentId));
+        }
+        for (int i = 0; i < waveScript.numSpitterBugs; i++){
+            currentId++;
+            if (currentId > 3){
+                currentId = 0;
+            }
+            StartCoroutine(DelayedSpawn(spitterBugObject, 2f * i, currentId));
+        }
+    }
+
+    IEnumerator DelayedSpawn(GameObject bug, float delay, int id) {
+        yield return new WaitForSeconds(delay);
+        EventManager.current.SpawnBug(bug, id);
+        
     }
 }
