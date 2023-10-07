@@ -44,8 +44,8 @@ public class WaveManager : MonoBehaviour
         }
         */
         waveScript.numNormalBugs = 20;
-        waveScript.numChaserBugs = 0;
-        waveScript.numSpitterBugs = 0;
+        waveScript.numChaserBugs = 2;
+        waveScript.numSpitterBugs = 2;
 
         SpawnWave();
 
