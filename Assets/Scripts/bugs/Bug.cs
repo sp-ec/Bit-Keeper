@@ -10,8 +10,6 @@ public class Bug : MonoBehaviour
     Rigidbody2D rb;
     [SerializeField] Transform target;
     Vector2 moveDirection;
-    [SerializeField] GameObject bullet;
-
     [SerializeField] int maxHealth = 1;
     int health;
 
