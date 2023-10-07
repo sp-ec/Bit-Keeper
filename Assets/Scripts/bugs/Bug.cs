@@ -41,13 +41,11 @@ public class Bug : MonoBehaviour
         rb.velocity = new Vector2(moveDirection.x, moveDirection.y) * moveSpeed;
     }
 
-    void OnTriggerEnter2D(Collider2D other) {
-        if (other.tag == bullet.tag) {
-            health -= 1;
-            if (health == 0) {
-                sr.color = Color.red;
-                Destroy(gameObject, 0.5f);
-            }
+    public void damageEnemy() {
+        health -= 1;
+        if (health == 0) {
+            sr.color = Color.red;
+            Destroy(gameObject, 0.5f);
         }
     }
 
