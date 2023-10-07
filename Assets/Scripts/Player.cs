@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float acceleration;
     [SerializeField] private float decceleration;
+    private Vector3 mousePos;
+    [SerializeField] private GameObject cannon;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +22,14 @@ public class Player : MonoBehaviour
     void Update()
     {
         GetInput();
+    
+        Vector2 mouseDirection = CursorManager.current.GetMouseDirection(this.gameObject);
+
+        float angle = Mathf.Atan2(mouseDirection.y, mouseDirection.x) * Mathf.Rad2Deg + 90;
+        Debug.Log(angle);
+
+        Quaternion targetRotation = Quaternion.Euler(new Vector3(0, 0, angle));
+        cannon.transform.rotation = Quaternion.RotateTowards(cannon.transform.rotation, targetRotation, 100);
     }
 
     void FixedUpdate()
@@ -36,6 +46,7 @@ public class Player : MonoBehaviour
         if (inputY != 0){
             inputY = Mathf.Sign(inputY);
         }
+        mousePos = Input.mousePosition;
     }
 
     void Move(){
