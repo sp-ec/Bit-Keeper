@@ -26,7 +26,6 @@ public class Player : MonoBehaviour
         Vector2 mouseDirection = CursorManager.current.GetMouseDirection(this.gameObject);
 
         float angle = Mathf.Atan2(mouseDirection.y, mouseDirection.x) * Mathf.Rad2Deg + 90;
-        Debug.Log(angle);
 
         Quaternion targetRotation = Quaternion.Euler(new Vector3(0, 0, angle));
         cannon.transform.rotation = Quaternion.RotateTowards(cannon.transform.rotation, targetRotation, 100);
