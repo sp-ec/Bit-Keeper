@@ -643,7 +643,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2.5
-  target: {fileID: 1792605386}
   maxHealth: 1
 --- !u!1 &736925898
 GameObject:
@@ -1134,6 +1133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1670409398}
   - component: {fileID: 1670409399}
+  - component: {fileID: 1670409400}
   m_Layer: 0
   m_Name: sp
   m_TagString: Untagged
@@ -1208,6 +1208,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1670409400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1670409397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1c6c40b467ef5347935af98a2bafa37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bug: {fileID: 4917056877765847347, guid: 9af6f0af8983ef545b99473562500986, type: 3}
 --- !u!1 &1683811465
 GameObject:
   m_ObjectHideFlags: 0
@@ -1371,7 +1384,7 @@ GameObject:
   - component: {fileID: 1792605389}
   m_Layer: 0
   m_Name: player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
