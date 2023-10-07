@@ -9,7 +9,7 @@ public abstract class Projectile : MonoBehaviour
     [SerializeField] protected float speed;
     [SerializeField] protected Rigidbody2D rb;
     Vector2 previousPosition;
-    string[] raycastLayers = {"Default"};
+    string[] raycastLayers = {"Default", "Wall"};
 
     void Update(){
         RunRaycast();
