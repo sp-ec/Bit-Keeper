@@ -9,6 +9,7 @@ public abstract class Projectile : MonoBehaviour
     [SerializeField] protected float speed;
     [SerializeField] protected Rigidbody2D rb;
     Vector2 previousPosition;
+    string[] raycastLayers = {"Default"};
 
     void Update(){
         RunRaycast();
@@ -25,11 +26,14 @@ public abstract class Projectile : MonoBehaviour
     }
 
     private void RunRaycast(){
-
+        RaycastHit2D hit = Physics2D.Linecast(previousPosition, transform.position, LayerMask.GetMask(raycastLayers));
+        if (hit.collider != null){
+            RunCollision(hit);
+        }
     }
 
-    private void RunCollision(){
-
+    protected virtual void RunCollision(RaycastHit2D hit){
+        Destroy(this.gameObject);
     }
 
 
