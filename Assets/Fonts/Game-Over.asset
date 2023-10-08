@@ -84,7 +84,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: -249523834366874406}
+        m_Texture: {fileID: -249523834366874406, guid: e87653540af0440909dd73bc1977403b, type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OutlineTex:
@@ -118,7 +118,7 @@ Material:
     - _OutlineSoftness: 0
     - _OutlineUVSpeedX: 0
     - _OutlineUVSpeedY: 0
-    - _OutlineWidth: 0
+    - _OutlineWidth: 0.2
     - _PerspectiveFilter: 0.875
     - _Reflectivity: 10
     - _ScaleRatioA: 0.8333333
@@ -166,11 +166,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
-  m_Name: PixelifySans-VariableFont_wght SDF
+  m_Name: Game-Over
   m_EditorClassIdentifier: 
-  hashCode: 657844267
+  hashCode: -867130566
   material: {fileID: -166232679429473070}
-  materialHashCode: 581052203
+  materialHashCode: -705500966
   m_Version: 1.1.0
   m_SourceFontFileGUID: fd39a09844f4f4ece9c80ff9950c9add
   m_SourceFontFile_EditorRef: {fileID: 12800000, guid: fd39a09844f4f4ece9c80ff9950c9add, type: 3}

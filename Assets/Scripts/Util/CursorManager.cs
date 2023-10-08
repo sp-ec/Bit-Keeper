@@ -15,6 +15,7 @@ class CursorManager : MonoBehaviour
     public void SetCursor(){
          Cursor.SetCursor(crosshairTexture, cursorOffset, CursorMode.Auto);
     }
+
     void OnMouseEnter()
     {
         Cursor.SetCursor(crosshairTexture, cursorOffset, CursorMode.Auto);

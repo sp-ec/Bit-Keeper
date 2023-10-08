@@ -26,7 +26,8 @@ public class PowerMenu : MonoBehaviour
             pm.transform.GetChild(0).gameObject.SetActive(true);
 
         } else {
-            Time.timeScale = 1;
+            if (!GameOver.gameOver)
+                Time.timeScale = 1;
             pm.transform.GetChild(0).gameObject.SetActive(false);
         }
     }

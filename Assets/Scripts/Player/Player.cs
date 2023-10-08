@@ -20,8 +20,9 @@ public class Player : MonoBehaviour
     public HealthBar healthBar;
     [SerializeField] float maxHealth = 100;
 
-    int points = 0;
+    public static int points = 0;
     public TMP_Text pointsText;
+
 
     [Header("Power Levels")]
     private int speedLevel = 0;
@@ -51,7 +52,8 @@ public class Player : MonoBehaviour
         float angle = Mathf.Atan2(mouseDirection.y, mouseDirection.x) * Mathf.Rad2Deg + 90;
 
         Quaternion targetRotation = Quaternion.Euler(new Vector3(0, 0, angle));
-        cannon.transform.rotation = Quaternion.RotateTowards(cannon.transform.rotation, targetRotation, 100);
+        if (!GameOver.gameOver)
+            cannon.transform.rotation = Quaternion.RotateTowards(cannon.transform.rotation, targetRotation, 100);
 
         tempTime += Time.deltaTime;
     }

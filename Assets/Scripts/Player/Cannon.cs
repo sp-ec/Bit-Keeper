@@ -49,9 +49,11 @@ public class Cannon : MonoBehaviour
                     
                 }
             } else {
-                GameObject bullet = Instantiate(bulletObject, exitPoint.position, Quaternion.identity);
-                PlayerBullet bulletScript = bullet.GetComponent<PlayerBullet>();
-                bulletScript.Create(direction, bulletSpeed);
+                if (Time.timeScale != 0) {
+                    GameObject bullet = Instantiate(bulletObject, exitPoint.position, Quaternion.identity);
+                    PlayerBullet bulletScript = bullet.GetComponent<PlayerBullet>();
+                    bulletScript.Create(direction, bulletSpeed);
+                }
         }
 
         fireCooldownCounter = fireCooldown;
