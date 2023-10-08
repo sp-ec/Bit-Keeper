@@ -7771,6 +7771,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 121856909}
+  - component: {fileID: 121856910}
   m_Layer: 5
   m_Name: Selection2
   m_TagString: Untagged
@@ -7800,6 +7801,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -107.89252}
   m_SizeDelta: {x: 2560, y: 1224.215}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &121856910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 121856908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bccf7bb5dfadf4af09104e85addf0866, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &129578571
 GameObject:
   m_ObjectHideFlags: 0
@@ -8180,9 +8193,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Speed
-
-'
+  m_text: Speed
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e87653540af0440909dd73bc1977403b, type: 2}
   m_sharedMaterial: {fileID: -166232679429473070, guid: e87653540af0440909dd73bc1977403b, type: 2}
@@ -12611,6 +12622,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1516304090}
+  - component: {fileID: 1516304091}
   m_Layer: 5
   m_Name: Selection3
   m_TagString: Untagged
@@ -12640,6 +12652,18 @@ RectTransform:
   m_AnchoredPosition: {x: 514, y: -107.89252}
   m_SizeDelta: {x: 2560, y: 1224.215}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1516304091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1516304089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bccf7bb5dfadf4af09104e85addf0866, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1559137785
 GameObject:
   m_ObjectHideFlags: 0
@@ -16871,6 +16895,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1943819731}
+  - component: {fileID: 1943819732}
   m_Layer: 5
   m_Name: Selection
   m_TagString: Untagged
@@ -16900,6 +16925,18 @@ RectTransform:
   m_AnchoredPosition: {x: -514, y: -107.89252}
   m_SizeDelta: {x: 2560, y: 1224.215}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1943819732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1943819730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bccf7bb5dfadf4af09104e85addf0866, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1985529935
 GameObject:
   m_ObjectHideFlags: 0
