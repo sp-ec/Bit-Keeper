@@ -9440,7 +9440,7 @@ MonoBehaviour:
   deadBall: {fileID: 21300000, guid: c6006ce5bb5c16c47ab31715d703f57e, type: 3}
   pointsObject: {fileID: 1364006140}
   pointsText: {fileID: 1598330801}
-  gameOverScreen: {fileID: 0}
+  gameOverScreen: {fileID: 1512523283}
 --- !u!1 &822085186
 GameObject:
   m_ObjectHideFlags: 0
