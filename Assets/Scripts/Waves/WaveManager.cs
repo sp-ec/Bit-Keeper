@@ -5,7 +5,7 @@ using UnityEngine;
 public class WaveManager : MonoBehaviour
 {
     public static WaveManager current;
-    int numWaves = 9;
+    int numWaves = 0;
     private Wave waveScript;
     [SerializeField] private GameObject bugObject;
     [SerializeField] private GameObject chaserBugObject;
@@ -123,6 +123,8 @@ public class WaveManager : MonoBehaviour
         while (true){
             yield return new WaitForSeconds(1);
             if (GameObject.FindGameObjectWithTag("Bug") == null){
+                if (numWaves % 2 == 1)
+                    PowerMenu.enablePowerMenu = true;
                 NextWave();
             }
         }

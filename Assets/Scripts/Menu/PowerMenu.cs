@@ -20,10 +20,6 @@ public class PowerMenu : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown("space")) {
-            enablePowerMenu = !enablePowerMenu;
-        }
-
         if (enablePowerMenu) {
 
             Time.timeScale = 0;

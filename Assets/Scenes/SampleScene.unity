@@ -8193,9 +8193,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Speed
-
-'
+  m_text: Speed
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e87653540af0440909dd73bc1977403b, type: 2}
   m_sharedMaterial: {fileID: -166232679429473070, guid: e87653540af0440909dd73bc1977403b, type: 2}
