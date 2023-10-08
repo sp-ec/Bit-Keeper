@@ -5,12 +5,15 @@ using UnityEngine;
 public class PowerMenu : MonoBehaviour
 {
 
-    public bool enablePowerMenu = false;
+    public static bool enablePowerMenu = false;
+
+    public static GameObject pm;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         enablePowerMenu = false;   
+        pm = gameObject;
     }
 
     // Update is called once per frame
@@ -24,11 +27,11 @@ public class PowerMenu : MonoBehaviour
         if (enablePowerMenu) {
 
             Time.timeScale = 0;
-            gameObject.transform.GetChild(0).gameObject.SetActive(true);
+            pm.transform.GetChild(0).gameObject.SetActive(true);
 
         } else {
             Time.timeScale = 1;
-            gameObject.transform.GetChild(0).gameObject.SetActive(false);
+            pm.transform.GetChild(0).gameObject.SetActive(false);
         }
     }
 }
