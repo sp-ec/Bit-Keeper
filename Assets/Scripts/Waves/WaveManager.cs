@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class WaveManager : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class WaveManager : MonoBehaviour
     private int numChaserBugs;
     private int numSpitterBugs;
     private int numBossBugs;
+
+    public TMP_Text waveText;
     
     void Awake()
     {
@@ -36,6 +39,7 @@ public class WaveManager : MonoBehaviour
     public void NextWave(){
         
         numWaves++;
+        waveText.text = "Wave: " + numWaves;
         if (numWaves == 1){
             numNormalBugs = numWaves * 10;
             numChaserBugs = 0;
