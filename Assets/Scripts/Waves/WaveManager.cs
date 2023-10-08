@@ -5,7 +5,7 @@ using UnityEngine;
 public class WaveManager : MonoBehaviour
 {
     public static WaveManager current;
-    int numWaves = 4;
+    int numWaves = 0;
     private Wave waveScript;
     [SerializeField] private GameObject bugObject;
     [SerializeField] private GameObject chaserBugObject;
