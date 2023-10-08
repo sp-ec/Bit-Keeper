@@ -17501,7 +17501,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.000000059604645, y: 0.2492361}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -17512,7 +17512,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.7497524, y: 1.507637}
+  m_Size: {x: 1.8, y: 1.8}
   m_EdgeRadius: 0
 --- !u!1 &1247938151763830846
 GameObject:
@@ -17826,7 +17826,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!222 &5218497219757840936
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -18032,7 +18032,7 @@ RectTransform:
   m_Father: {fileID: 498810618490427592}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.39, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -18192,7 +18192,7 @@ GameObject:
   - component: {fileID: 2732333383814896271}
   - component: {fileID: 1410725459888020523}
   - component: {fileID: 1166613180545136325}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: sprite
   m_TagString: CPU
   m_Icon: {fileID: 0}
