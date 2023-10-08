@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameOver : MonoBehaviour
 {
@@ -15,6 +17,9 @@ public class GameOver : MonoBehaviour
     public TMP_Text pointsText;
     public GameObject gameOverScreen;
 
+    public Button startOver;
+    public Button mainMenu;
+
     void Awake() {
         playerSR = GameObject.FindGameObjectWithTag("Player").GetComponent<SpriteRenderer>();
         pointsObject.SetActive(true);
@@ -27,6 +32,8 @@ public class GameOver : MonoBehaviour
         light.pointLightOuterRadius = 18.1f;
         playerSR.sprite = ball;
         HealthBar.healthBarObject.SetActive(true);
+        mainMenu.onClick.AddListener(LoadMainMenu);
+        startOver.onClick.AddListener(StartOver);
     }
 
     // Update is called once per frame
@@ -44,4 +51,13 @@ public class GameOver : MonoBehaviour
             pointsText.text = "Points: " + Player.points;
         }
     }
+
+    public void LoadMainMenu() {
+        SceneManager.LoadScene("Scenes/TitleScene");
+    }
+
+    public void StartOver() {
+        SceneManager.LoadScene("Scenes/SampleScene");
+    }
+
 }
