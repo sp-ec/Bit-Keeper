@@ -146,7 +146,7 @@ public class Player : MonoBehaviour
 
     void UpdateStats(){
         if (speedLevel != 0){
-            currentSpeed = speed * (Mathf.Pow(1.3f, speedLevel));
+            currentSpeed = speed * (Mathf.Pow(1.45f, speedLevel));
         }
         
     }
