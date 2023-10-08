@@ -23,6 +23,7 @@ public class PowerMenu : MonoBehaviour
         if (enablePowerMenu) {
 
             Time.timeScale = 0;
+            Debug.Log("Power Menu Enabled");
             pm.transform.GetChild(0).gameObject.SetActive(true);
 
         } else {
