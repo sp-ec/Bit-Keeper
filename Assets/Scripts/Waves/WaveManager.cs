@@ -5,11 +5,16 @@ using UnityEngine;
 public class WaveManager : MonoBehaviour
 {
     public static WaveManager current;
-    int numWaves = 0;
+    int numWaves = 9;
     private Wave waveScript;
     [SerializeField] private GameObject bugObject;
     [SerializeField] private GameObject chaserBugObject;
     [SerializeField] private GameObject spitterBugObject;
+    [SerializeField] private GameObject bossBugObject;
+    private int numNormalBugs;
+    private int numChaserBugs;
+    private int numSpitterBugs;
+    private int numBossBugs;
     
     void Awake()
     {
@@ -32,61 +37,79 @@ public class WaveManager : MonoBehaviour
         
         numWaves++;
         if (numWaves <= 2){
-            waveScript.numNormalBugs = numWaves * 10;
-            waveScript.numChaserBugs = 0;
-            waveScript.numSpitterBugs = 0;
+            numNormalBugs = numWaves * 10;
+            numChaserBugs = 0;
+            numSpitterBugs = 0;
+            numBossBugs = 0;
         } else if (numWaves <= 3) {
-            waveScript.numNormalBugs = 20;
-            waveScript.numChaserBugs = 1;
+            numNormalBugs = 20;
+            numChaserBugs = 1;
         } else if (numWaves <= 4) {
-            waveScript.numNormalBugs = 0;
-            waveScript.numChaserBugs = 4;
+            numNormalBugs = 0;
+            numChaserBugs = 4;
         } else if (numWaves <= 6){
-            waveScript.numNormalBugs = numWaves * 5;
-            waveScript.numChaserBugs = numWaves;
+            numNormalBugs = numWaves * 5;
+            numChaserBugs = numWaves;
         } else if (numWaves <= 7){
-            waveScript.numNormalBugs = 0;
-            waveScript.numChaserBugs = 0;
-            waveScript.numSpitterBugs = 4;
+            numNormalBugs = 0;
+            numChaserBugs = 0;
+            numSpitterBugs = 4;
         } else if (numWaves <= 9){
-            waveScript.numNormalBugs = numWaves * 7;
-            waveScript.numChaserBugs = numWaves/2;
-            waveScript.numSpitterBugs = numWaves;
+            numNormalBugs = numWaves * 7;
+            numChaserBugs = numWaves/2;
+            numSpitterBugs = numWaves;
+        } else if (numWaves <= 10){
+            numNormalBugs = 0;
+            numChaserBugs = 0;
+            numSpitterBugs = 0;
+            numBossBugs = 1;
         } else {
-            waveScript.numNormalBugs = numWaves * 8;
-            waveScript.numChaserBugs = numWaves;
-            waveScript.numSpitterBugs = numWaves * 2;
+            numNormalBugs = numWaves * 8;
+            numChaserBugs = numWaves;
+            numSpitterBugs = numWaves * 2;
+            if (numWaves%5 == 0){
+                numBossBugs = (numWaves - 10)/5;
+            } else {
+                numBossBugs = 0;
+            }
         }
     
         SpawnWave();
 
-        Debug.Log(waveScript.numNormalBugs);
+        Debug.Log(numNormalBugs);
     }
 
     private void SpawnWave(){
 
         int currentId = 0;
 
-        for (int i = 0; i < waveScript.numNormalBugs; i++){
+        for (int i = 0; i < numNormalBugs; i++){
             currentId++;
             if (currentId > 3){
                 currentId = 0;
             }
-            StartCoroutine(DelayedSpawn(bugObject, 0.2f * i, currentId));
+            StartCoroutine(DelayedSpawn(bugObject, 0.8f * i, currentId));
         }
-        for (int i = 0; i < waveScript.numChaserBugs; i++){
+        for (int i = 0; i < numChaserBugs; i++){
             currentId++;
             if (currentId > 3){
                 currentId = 0;
             }
             StartCoroutine(DelayedSpawn(chaserBugObject, 3f * i, currentId));
         }
-        for (int i = 0; i < waveScript.numSpitterBugs; i++){
+        for (int i = 0; i < numSpitterBugs; i++){
             currentId++;
             if (currentId > 3){
                 currentId = 0;
             }
             StartCoroutine(DelayedSpawn(spitterBugObject, 2f * i, currentId));
+        }
+        for (int i = 0; i < numBossBugs; i++){
+            currentId++;
+            if (currentId > 3){
+                currentId = 0;
+            }
+            StartCoroutine(DelayedSpawn(bossBugObject, 7f * i, currentId));
         }
     }
 

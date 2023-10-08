@@ -8,6 +8,7 @@ TagManager:
   - Bug
   - HealthBar
   - CPU
+  - PowerMenu
   layers:
   - Default
   - TransparentFX

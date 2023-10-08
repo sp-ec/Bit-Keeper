@@ -9265,7 +9265,6 @@ GameObject:
   m_Component:
   - component: {fileID: 835291912}
   - component: {fileID: 835291913}
-  - component: {fileID: 835291914}
   m_Layer: 0
   m_Name: WaveManager
   m_TagString: Untagged
@@ -9303,21 +9302,7 @@ MonoBehaviour:
   bugObject: {fileID: 4917056877765847347, guid: 9af6f0af8983ef545b99473562500986, type: 3}
   chaserBugObject: {fileID: 8541574833486663056, guid: b5732fe340bf084478ac3f96fb3ffab0, type: 3}
   spitterBugObject: {fileID: 1725879111033209086, guid: 8ae91197bfb2ed746b0096c99784aa8f, type: 3}
---- !u!114 &835291914
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 835291911}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55b97dff87faf21458231f7ee7c9fe34, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  numNormalBugs: 0
-  numChaserBugs: 0
-  numSpitterBugs: 0
+  bossBugObject: {fileID: 2266468419318444203, guid: 386dfa2b6f37cff4eb93e96b68c9c33b, type: 3}
 --- !u!1 &980222603
 GameObject:
   m_ObjectHideFlags: 0
@@ -13302,7 +13287,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 798d5f3c4c9ccdf4b8023f6bc77691e9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -17893,7 +17878,7 @@ GameObject:
   - component: {fileID: 8867213457137870141}
   m_Layer: 5
   m_Name: Power Menu
-  m_TagString: Untagged
+  m_TagString: PowerMenu
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
