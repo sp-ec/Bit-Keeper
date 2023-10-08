@@ -164,12 +164,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25122e1a3cc7baa4db9feb8a639edf51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 50
+  maxHealth: 85
   points: 50
   player: {fileID: 0}
-  bugObject: {fileID: 8541574833486663056, guid: b5732fe340bf084478ac3f96fb3ffab0, type: 3}
-  spawnCooldown: 7
-  spawnPoint: {fileID: 6850008427206423426}
+  bulletObject: {fileID: 7661794751805632906, guid: 8d5531985662b95429e9071aa07a0b2d, type: 3}
+  fireCooldown: 0.5
+  bulletSpeed: 15
+  exitPoint: {fileID: 6850008427206423426}
+  numBullets: 3
 --- !u!114 &6476591879037275837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -265,7 +267,7 @@ Transform:
   m_GameObject: {fileID: 2815621199550462215}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.03, y: 1.68, z: 0}
+  m_LocalPosition: {x: -0.03, y: 1.156, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
