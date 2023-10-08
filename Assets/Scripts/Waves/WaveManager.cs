@@ -5,7 +5,7 @@ using UnityEngine;
 public class WaveManager : MonoBehaviour
 {
     public static WaveManager current;
-    int numWaves = 0;
+    int numWaves = 4;
     private Wave waveScript;
     [SerializeField] private GameObject bugObject;
     [SerializeField] private GameObject chaserBugObject;
@@ -36,30 +36,24 @@ public class WaveManager : MonoBehaviour
     public void NextWave(){
         
         numWaves++;
-        if (numWaves <= 2){
+        if (numWaves == 1){
             numNormalBugs = numWaves * 10;
             numChaserBugs = 0;
             numSpitterBugs = 0;
             numBossBugs = 0;
-        } else if (numWaves <= 3) {
-            numNormalBugs = 20;
-            numChaserBugs = 1;
-        } else if (numWaves <= 4) {
+        } else if (numWaves == 2) {
             numNormalBugs = 0;
             numChaserBugs = 4;
-        } else if (numWaves <= 6){
-            numNormalBugs = numWaves * 5;
-            numChaserBugs = numWaves;
-        } else if (numWaves <= 7){
+        } else if (numWaves == 3) {
             numNormalBugs = 0;
             numChaserBugs = 0;
             numSpitterBugs = 4;
-        } else if (numWaves <= 9){
-            numNormalBugs = numWaves * 7;
-            numChaserBugs = numWaves/2;
-            numSpitterBugs = numWaves;
-        } else if (numWaves <= 10){
-            numNormalBugs = 0;
+        } else if (numWaves == 4){
+            numNormalBugs = 20;
+            numChaserBugs = 4;
+            numSpitterBugs = 4;
+        } else if (numWaves == 5){
+            numNormalBugs = 20;
             numChaserBugs = 0;
             numSpitterBugs = 0;
             numBossBugs = 1;
@@ -88,7 +82,7 @@ public class WaveManager : MonoBehaviour
             if (currentId > 3){
                 currentId = 0;
             }
-            StartCoroutine(DelayedSpawn(bugObject, 0.8f * i, currentId));
+            StartCoroutine(DelayedSpawn(bugObject, 0.5f * i, currentId));
         }
         for (int i = 0; i < numChaserBugs; i++){
             currentId++;
@@ -123,9 +117,10 @@ public class WaveManager : MonoBehaviour
         while (true){
             yield return new WaitForSeconds(1);
             if (GameObject.FindGameObjectWithTag("Bug") == null){
-                if (numWaves % 2 == 1)
-                    PowerMenu.enablePowerMenu = true;
+                PowerMenu.enablePowerMenu = true;
                 NextWave();
+            } else {
+                Debug.Log("Bug Found: " + GameObject.FindGameObjectWithTag("Bug"));
             }
         }
     }

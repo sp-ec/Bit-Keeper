@@ -9,6 +9,8 @@ public class PlayerBullet : Projectile
         if (hit.collider.CompareTag("Bug")){
             AbstractBug bugScript = hit.transform.gameObject.GetComponent<AbstractBug>();
             bugScript.damageEnemy();
+        } else if (hit.collider.CompareTag("Player")){
+            return;
         }
         base.RunCollision(hit);
     }
