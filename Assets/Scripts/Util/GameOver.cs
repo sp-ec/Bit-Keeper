@@ -39,9 +39,8 @@ public class GameOver : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("space")) {
+        if (gameOver) {
             gameOverScreen.SetActive(true);
-            gameOver = true;
             light.pointLightInnerRadius = 0.42f;
             light.pointLightOuterRadius = 1.26f;
             playerSR.sprite = deadBall;
