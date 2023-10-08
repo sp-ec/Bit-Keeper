@@ -10,7 +10,7 @@ public class Selection : MonoBehaviour {
     TMP_Text title;
 
     void Awake() {
-        title = gameObject.transform.GetChild(2).GetChild(0).gameObject.GetComponent<TMP_Text>();
+        title = gameObject.transform.GetChild(0).gameObject.GetComponent<TMP_Text>();
         button = gameObject.transform.GetChild(2).GetComponent<Button>();
     }
 
@@ -20,7 +20,7 @@ public class Selection : MonoBehaviour {
 
     void Selected() {
         PowerMenu.enablePowerMenu = false;
-        Debug.Log("FHAJDKFHJKDSA");
+        Debug.Log(title.text);
         if (title.text.Equals("Fire Rate")) {
             EventManager.current.UpgradeCannon(0);
         } else if (title.text.Equals("Multi-shot")) {
