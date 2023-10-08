@@ -6,21 +6,25 @@ using UnityEngine.SceneManagement;
 
 public class StartGame : MonoBehaviour
 {
-    // Start is called before the first frame update
-
-    Button button;
+    Button startButton;
+    public Button exitButton;
 
 
     void Awake() {
-        button = GetComponent<Button>();
+        startButton = GetComponent<Button>();
     }
     void Start()
     {
-        button.onClick.AddListener(StartGameButton);
+        startButton.onClick.AddListener(StartGameButton);
+        exitButton.onClick.AddListener(ExitGameButton);
     }
 
     public void StartGameButton() {
         SceneManager.LoadScene("Scenes/SampleScene");
+    }
+
+    public void ExitGameButton() {
+        Application.Quit();
     }
 
 }
