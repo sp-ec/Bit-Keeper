@@ -12,6 +12,8 @@ public abstract class AbstractBug : MonoBehaviour
     [SerializeField] int maxHealth = 1;
     int health;
 
+    public int damageDeltByPlayer = 1;
+
     public int points = 1;
 
     public Player player;
@@ -40,8 +42,8 @@ public abstract class AbstractBug : MonoBehaviour
 
     public void damageEnemy() {
         StartCoroutine(FlashRed());
-        health -= 1;
-        if (health == 0) {
+        health -= damageDeltByPlayer;
+        if (health <= 0) {
             sr.color = Color.red;
             Destroy(gameObject, 0.1f);
             player.addPoints(points);

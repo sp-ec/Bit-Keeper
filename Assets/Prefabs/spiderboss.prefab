@@ -165,6 +165,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 85
+  damageDeltByPlayer: 1
   points: 50
   player: {fileID: 0}
   bulletObject: {fileID: 7661794751805632906, guid: 8d5531985662b95429e9071aa07a0b2d, type: 3}
